@@ -27,7 +27,7 @@ public class Arithmetic {
 		
 		// 2. 초기화
 		// 스캐너 변수 초기화
-		scan = new Scanner(System.in);
+		scan = new Scanner(System.in); // Scanner는 참조할 수 밖에 없는 변수 이기 때문에 new를 이용하여 참조
 		
 		// 스캐너를 사용하여 정수 값을 입력
 		System.out.println("정수 두 개를 입력 : ");
