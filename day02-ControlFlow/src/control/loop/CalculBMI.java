@@ -18,7 +18,7 @@ public class CalculBMI {
 		m = scan.nextDouble();
 		System.out.println("무게입력(kg)");
 		kg = scan.nextDouble();
-		
+		scan.close();
 		m /= 100;
 		
 		BMI = kg / (m * m);
