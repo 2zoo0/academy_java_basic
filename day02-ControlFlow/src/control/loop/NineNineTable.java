@@ -12,14 +12,14 @@ public class NineNineTable {
 		
 		// 외부 for 반복문 : 2 ~ 9 단을 반복
 		for (int stage = 2; stage <= 9; stage++) {
-			System.out.printf("%n - %d 단 - ", stage);
 			// 내부 for 반복문 : 1 ~ 9 곱해지는 수를 반복
 			for (int times = 2; times <= 9; times++) {
 				
-				System.out.printf("| %d * %d = %2d | ", stage, times, stage * times );
+				System.out.printf("%d * %d = %2d|", times, stage, stage * times );
 				
 			} // end inner for
 			
+			System.out.println();
 		} // end outer for
 	}
 
