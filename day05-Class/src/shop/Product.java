@@ -89,7 +89,7 @@ public class Product {
 	 * 출력하는 메소드
 	 */
 	void print() {
-		System.out.printf("제품코드 : %s, 제품명 : %12s, 제품가격 : %6d원, 재고량 : %5d개 %n",prodCode, prodName, price, quantity);
+		System.out.printf("제품코드 : %s, 제품명 : %10s, 제품가격 : %6d원, 재고량 : %5d개 %n",prodCode, prodName, price, quantity);
 	}
 	
 	/**

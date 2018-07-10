@@ -112,29 +112,31 @@ public class Warehouse {
 		int rmIndex = -1;
 		rmIndex = findProductIdx(product);
 		
-		// 삭제 안 된 제품을 유지할 새 배열
+		// 삭제 안된 제품을 유지할 새 배열
 		Product[] newProducts;
 		
 		if (rmIndex > -1) {
 			newProducts = new Product[this.products.length - 1];
 			
-			// 1. rmIndex 가 배열 중간일 때
-			if (rmIndex > (products.length - 1)) {
+			// 1. rmIndex 가 배열 중간일 때			
+			if (rmIndex < (products.length - 1)) {
 				// 삭제할 제품 앞쪽까지 복사
 				for (int idx = 0; idx < rmIndex; idx++) {
 					newProducts[idx] = products[idx];
 				}
-				// 삭제할 제품 뒷쪽부터 복사
-				for (int idx = rmIndex; idx < newProducts.length; idx++) {
-					newProducts[idx] = products[idx + 1];
-				}
 				
+				// 삭제할 제품 뒷쪽부터 끝까지 복사
+				for (int idx = rmIndex; idx < newProducts.length; idx++) {
+					newProducts[idx] = products[idx + 1];					
+				}
+
 			} else {
 			// 2. rmIndex 가 배열 마지막일 때
 				for (int idx = 0; idx < products.length - 1; idx++) {
 					newProducts[idx] = products[idx];
 				}
 			} // inner if End
+			this.products = newProducts;
 		} // Outer if End
 	} // remove End
 	
@@ -164,7 +166,7 @@ public class Warehouse {
 				break;
 			}
 			
-		}
+		} // End for Loop
 		return finded;
 	} // End findProduct
 	
