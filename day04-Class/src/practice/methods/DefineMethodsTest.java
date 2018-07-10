@@ -84,7 +84,7 @@ public class DefineMethodsTest {
 		System.out.println(absol);
 		System.out.println("\n=================\n");
 		
-		deMeth.findNultiple(6); // 2
+		deMeth.findMultiple(6); // 2
 		
 		System.out.println("\n=================\n");
 		
