@@ -6,7 +6,7 @@ public class DefineMethods {
 
 	public void printTenTimes(int input){
 		for (int idx = 1; idx <= 10; idx++) {
-			input += 10;
+			input += 10; // <-- 매개 변수를 바꾸는 것은 좋지 않음
 			System.out.printf("%d%n", input);
 		}
 	}
@@ -28,7 +28,7 @@ public class DefineMethods {
 
 	// 5.
 	public int addTen(int input){
-		input += 10;
+		input += 10; // <-- 매개 변수를 바꾸는 것은 좋지 않음
 		return input;
 	}
 
@@ -90,9 +90,9 @@ public class DefineMethods {
 	}
 
 	// 14. 
-	public double arithmetics(String operator, int x, int y){
+	public double arithmetics(String operator, int x, int y){ // double을 출력하므로 double로 입력 받는 것이 좋다.
 		double result;
-		result = 0.0;
+		result = 0.0; // 변수는 반드시 초기화를 한다.
 		switch(operator){
 			case "+" : result = x + y;
 			break;
@@ -111,7 +111,7 @@ public class DefineMethods {
 		boolean result;
 		if (input % 2 == 0) {
 			result = true;
-		} else {
+		} else { // boolean은 false이므로 else 문을 굳이 쓸 필요는 없음
 			result = false;
 		}
 
@@ -125,12 +125,13 @@ public class DefineMethods {
 	// 1.
 	 public int absolut(int x){
 		if (x < 0){
-			x *= -1;}
+			x *= -1; // <--
+		}
 		return x;
 	}
 
 	// 2.
-	public void findNultiple(int x){
+	public void findMultiple(int x){
 		for(int multi = x; multi <= 100; multi += x){
 			System.out.println(multi);
 		}
@@ -153,9 +154,18 @@ public class DefineMethods {
 	// 4.
 	public void repeatedMessage(String message, int repeat){
 		String[] msgs = new String[repeat];
+		
+		// 저장
 		for (int idx = 0; idx < msgs.length; idx++) {
 			msgs[idx] = message;
 		}
+		
+		// 출력 방법 1 : 이것을 권장
+		for (String msg1 : msgs) {
+			System.out.println(msg1);
+		} 
+		
+		// 출력 방법 2
 		for (int idx = 0; idx < msgs.length; idx++){
 			System.out.println(msgs[idx]);
 		}
@@ -169,7 +179,7 @@ public class DefineMethods {
 
 	// 6.
 	public int[] makeMultipleNums(int x){
-		int[] Multiples = new int[100 / x]; int index = 0;
+		int[] Multiples = new int[100 / x]; int index = 0; // <-- 변수명은 대문자 말고 소문자로 시작
 		for ( int Mul = x; Mul <= 100; Mul += x){
 			Multiples[index] = Mul;
 			index++;
@@ -177,3 +187,20 @@ public class DefineMethods {
 		return Multiples;
 	} 
 }
+
+
+/**********************************************************************************
+ * 매개변수 입력값에서 말고 출력문에서 값을 변경할 것 (또는 지역변수를 추가하여 지역변수를 return or 출력)
+ * 
+ * String 은 == 말고 equals() <-- 참조형에 사용
+ * 
+ * (String 은 대표적인 참조형)
+ * 
+ * 배열 출력은 foreach로 출력 권장
+ * 
+ * boolean 은 초기값 false 설정하고 if()문에만 true하면 else문은 굳이 필요 없어짐
+ * 
+ * 변수 명은 [소문자]로 시작
+ * 
+ * 변수는 항상 [초기화]
+ **********************************************************************************/
