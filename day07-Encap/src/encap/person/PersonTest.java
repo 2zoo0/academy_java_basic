@@ -1,4 +1,4 @@
-package inheritance.abstrct.person;
+package encap.person;
 
 /**
  * Person 과 상속관계인 Student, Teacher, Employee를 
