@@ -8,6 +8,7 @@ package shop;
  */
 public class ShopTest {
 
+	
 	public static void main(String[] args) {
 
 		// 1. 창고에 들여 놓을 제품 선반이 먼저 필요
