@@ -35,6 +35,7 @@ public class ShopTest {
 		// 4. 매장을 오픈
 		Shop abcMart = new Shop(manager);
 
+		
 		//----------------------------------------------//
 		// 매장에 입고할 신규 제품(신발) 이 매장에 도착했다.
 		Product adidas = 
