@@ -1,4 +1,6 @@
-package api.object;
+package api.object.test;
+
+import api.object.Product;
 
 /**
  * 매장에서 제품을 생성하고 입출고, 

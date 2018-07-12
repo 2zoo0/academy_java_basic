@@ -45,7 +45,7 @@ public class Product extends Object{
 	/**
 	 * 기본 생성자
 	 */
-	Product() {
+	public Product() {
 		
 	}
 	
@@ -53,7 +53,7 @@ public class Product extends Object{
 	 * 제품 코드 필드만 초기화하는 생성자
 	 * @param prodCode
 	 */
-	Product(String prodCode) {
+	public Product(String prodCode) {
 		this.prodCode = prodCode;
 	}
 	
@@ -64,7 +64,7 @@ public class Product extends Object{
 	 * @param price
 	 * @param quantity
 	 */
-	Product(String prodCode, String prodName, int price, int quantity) {
+	public Product(String prodCode, String prodName, int price, int quantity) {
 		this(prodCode);
 		this.prodName = prodName;
 		this.price = price;
@@ -194,5 +194,64 @@ public class Product extends Object{
 		         , prodCode, prodName, price, quantity);
 		return strProduct;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((prodCode == null) ? 0 : prodCode.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Product other = (Product) obj;
+		if (prodCode == null) {
+			if (other.prodCode != null)
+				return false;
+		} else if (!prodCode.equals(other.prodCode))
+			return false;
+		return true;
+	}
+
+//	// Product 의 객체들은 proCode가 같으면 동일 객체로 판단
+//	@Override
+//	public boolean equals(Object obj) {
+//		// 1. 동일 비교 결과 저장 변수 선언
+//		// 2. 초기화 : 기본 false 설정
+//		boolean isEqual = false;
+//		
+//		// 3. 사용 : 동일한 객체인지 판단
+//		// (1) 비교 대상인 obj 가 Product 타입인지 검사
+//		if (obj instanceof Product) {
+//			// (2) 비교하려느 this 객체와 비교 대상인 obj 간 각각의 필드가 동일한지 비교
+//			Product product =(Product)obj;
+//			//		product 만 같으면 같은 객체로 인정
+//			if (this.prodCode.equals(product.prodCode)) {
+//				isEqual = true;
+//			}
+//		}
+//		return isEqual;
+//	} // end equals
+//
+//	@Override
+//	public int hashCode() {
+//		// 입력이 동일하면 출력도 동일함 보장하는 수학적 알고리즘
+//		// 출력이 다르면 입력이 다르다는 결론을 보장하는 함수
+//		
+//		// 1. 비교하려는 필드가 참조형이면 그 클래스의 hashCode()를 호출
+//		// 2. 비교하려는 필드가 기본형이면 참조형으로 바꾸는 포장 클래스 객체로 변환 후에 hashCode() 를 호출
+//		// 3. 1, 2의 결과를 모두 ^ (XOR) 연산을 통과시킨다.
+//		
+//		return this.prodCode.hashCode();
+//	}
+//	
+	
 	
 }
