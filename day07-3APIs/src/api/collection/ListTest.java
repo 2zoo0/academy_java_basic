@@ -35,6 +35,18 @@ public class ListTest {
 		System.out.println(list.add(new Boolean(true))); // 명시적 wrapper 사용
 		System.out.println(list.add(false)); // auto - boxing
 		
+		/*
+		 * auto - boxing : 컬렉션에 기본형 데이터 추가시 
+		 * 				     자동으로 객체형 데이터로 포장 (wrapper 클래스 작동)
+		 * 				     되는 기능 1.5 버전부터 지원
+		 * ------------------------------------------
+		 * auto - unboxing : 컬렉션에서 포장된 기본형 데이터를
+		 * 					뽑아냈을 때 형변환 없이 바로 기본형 변수에 저장하는 기능
+		 * 					1.5 버전부터 지원
+		 */
+
+		int two = (Integer)list.get(1);
+		
 		// 사용자 정의 타입 객체도 추가
 		Product product = new Product("P001", "MS-아크 터치 마우스", 51330, 36);
 		System.out.println(list.add(product));
@@ -56,5 +68,18 @@ public class ListTest {
 		for (int idx = 0; idx < list.size(); idx++) {
 			System.out.println(list.get(idx));
 		}
+		
+		// (3) 리스트에 들어있는 객체가 Product 타입이면
+		// 		입고 기능을 쓰고 싶다.
+		System.out.println("====  ====");
+		for (Object obj : list) {
+			if (obj instanceof Product) {
+				Product prod = (Product)obj;
+				prod.buy(100);
+				
+				prod.print();
+			}
+		}// end for
+		
 	}
 }
