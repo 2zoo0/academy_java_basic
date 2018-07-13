@@ -1,11 +1,11 @@
-package shoes.set;
+package shoes.test;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import shoes.list.Shoe;
+import shoe.Shoe;
 
-public class ShoeTest {
+public class ShoeSetTest {
 	
 	public static void main(String[] args) {
 		

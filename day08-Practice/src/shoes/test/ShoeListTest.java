@@ -1,4 +1,4 @@
-package shoes.list;
+package shoes.test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,7 +8,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class ShoeTest {
+import shoe.Shoe;
+
+public class ShoeListTest {
 	
 	public static void main(String[] args) {
 		

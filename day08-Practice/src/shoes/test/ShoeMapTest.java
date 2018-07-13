@@ -1,4 +1,4 @@
-package shoes.map;
+package shoes.test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import shoes.list.Shoe;
+import shoe.Shoe;
 
-public class ShoeTest {
+public class ShoeMapTest {
 	
 	public static void main(String[] args) {
 		
