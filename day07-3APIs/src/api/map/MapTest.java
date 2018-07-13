@@ -45,8 +45,8 @@ public class MapTest {
 		// 전체 데이터 출력 : foreach
 		// 1. 맵의 키 전체를 먼저 얻어야 함
 		// 2. 얻어진 키로 get(k) 를 반복수행
-		Set ketSet = map.keySet();
-		for (Object key : ketSet) {
+		Set keySet = map.keySet();
+		for (Object key : keySet) {
 			System.out.printf("key = %s : value = %s%n", key.toString(), map.get(key).toString());
 		}
 	}
