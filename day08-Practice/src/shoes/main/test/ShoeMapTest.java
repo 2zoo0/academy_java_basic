@@ -1,4 +1,4 @@
-package shoes.test;
+package shoes.main.test;
 
 import java.util.ArrayList;
 import java.util.HashMap;

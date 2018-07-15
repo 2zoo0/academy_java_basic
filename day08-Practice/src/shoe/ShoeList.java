@@ -1,9 +1,7 @@
-package shoes.list;
+package shoe;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import shoe.Shoe;
 
 public class ShoeList {
 	// 멤버변수 선언
@@ -42,6 +40,11 @@ public class ShoeList {
 		return successCnt;
 	}
 	
+	/**
+	 * set(Shoe shoe) : int : 수정 성공 : 1, 수정 실패 : 0
+	 * @param shoe
+	 * @return
+	 */
 	public int set(Shoe shoe) {
 		int setIdx = findShoeIdx(shoe);
 		int successCnt = 0;
@@ -53,6 +56,11 @@ public class ShoeList {
 		return successCnt;
 	}
 	
+	/**
+	 * remove(Shoe shoe) : int : 삭제 성공 : 1, 삭제 실패 : 0
+	 * @param shoe
+	 * @return
+	 */
 	public int remove(Shoe shoe) {
 		int setIdx = findShoeIdx(shoe);
 		int successCnt = 0;
@@ -64,6 +72,11 @@ public class ShoeList {
 		return successCnt; 
 	}
 	
+	/**
+	 * get(Shoe shoe) : Shoe : 조회 성공 : shoe, 조회 실패 : null
+	 * @param shoe
+	 * @return
+	 */
 	public int get(Shoe shoe) {
 		int setIdx = findShoeIdx(shoe);
 		int successCnt = 0;
@@ -76,9 +89,18 @@ public class ShoeList {
 		return successCnt; 
 	}
 	
-	public List<Shoe> getAllShoes(Shoe shoe) {
+	/**
+	 * getAllShoes()  : List<Shoe> : 전체목록을 리턴
+	 * @return
+	 */
+	public List<Shoe> getAllShoes() {
+		List<Shoe> shoes = this.shoes;
 		
-		return this.shoes;
+		for (Shoe shoe : shoes) {
+			System.out.println(shoe);
+		}
+		
+		return shoes;
 	}
 	
 	
@@ -86,7 +108,11 @@ public class ShoeList {
 	
 	
 	
-	
+	/**
+	 * 
+	 * @param shoe
+	 * @return
+	 */
 	private int findShoeIdx(Shoe shoe) {
 		int index = -1;
 

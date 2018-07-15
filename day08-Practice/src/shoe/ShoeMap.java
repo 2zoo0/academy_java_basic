@@ -1,4 +1,4 @@
-package shoes.map;
+package shoe;
 
 public class ShoeMap {
 

@@ -131,6 +131,7 @@ public class Manager {
 	 */
 	public Product get(Product product) {
 		Product found = warehouse.get(product);
+		
 		if (found != null) {
 			// 찾아올 제품이 존재할 때
 			reply = new ProductReply();
