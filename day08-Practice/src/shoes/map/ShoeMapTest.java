@@ -1,12 +1,11 @@
-package shoes.list;
+package shoes.map;
 
 import shoe.Shoe;
-import shoe.ShoeSat;
 
-public class ShoeSetTest {
+public class ShoeMapTest {
 
 	public static void main(String[] args) {
-		ShoeSat shoes = new ShoeSat();
+		ShoeMap shoes = new ShoeMap();
 		
 		Shoe adidas = 
 				new Shoe("SH001", "스탠스미스", 260, 65000, "운동화", 5);

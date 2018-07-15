@@ -1,11 +1,11 @@
-package shoes.list;
+package shoes.set;
 
 import shoe.Shoe;
 
-public class ShoeListTest {
+public class ShoeSetTest {
 
 	public static void main(String[] args) {
-		ShoeList shoes = new ShoeList();
+		ShoeSat shoes = new ShoeSat();
 		
 		Shoe adidas = 
 				new Shoe("SH001", "스탠스미스", 260, 65000, "운동화", 5);

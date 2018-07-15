@@ -1,25 +1,29 @@
-package shoe;
+package shoes.set;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-public class ShoeList {
-	// 멤버변수 선언
-	private List<Shoe> shoes;
+import shoe.Shoe;
+
+public class ShoeSat {
+		// 멤버변수 선언
+	private Set<Shoe> shoes;
 
 	// 생성자
 	/**
-	 * 기본생성자 : shoes 를 직접 ArrayList<Shoe> 로 초기화 
+	 * 기본생성자 : shoes 를 직접 HashSet<Shoe> 로 초기화 
 	 */
-	public ShoeList() {
-		shoes = new ArrayList<Shoe>();
+	public ShoeSat() {
+		shoes = new HashSet<Shoe>();
 	}
 
 	/**
 	 * List<Shoe> shoes 를 매개변수로 하는 생성자
 	 * @param shoes
 	 */
-	public ShoeList(List<Shoe> shoes) {
+	public ShoeSat(Set<Shoe> shoes) {
 		this.shoes = shoes;
 	}
 	
@@ -29,14 +33,14 @@ public class ShoeList {
 	 * @param shoe
 	 */
 	public int add(Shoe shoe) {
-		
 		shoes.add(shoe);
-		boolean success = shoes.get(findShoeIdx(shoe)) != null ? true : false;
+		boolean success = shoes.add(shoe);
 		int successCnt = 0;
 		
 		if (success) {
 			successCnt++;
 		} 
+		
 		return successCnt;
 	}
 	
@@ -46,10 +50,12 @@ public class ShoeList {
 	 * @return
 	 */
 	public int set(Shoe shoe) {
-		int setIdx = findShoeIdx(shoe);
+		boolean success = shoes.contains(shoe);
 		int successCnt = 0;
-		if (setIdx > -1) {
-			shoes.set(setIdx, shoe);
+		
+		if (success) {
+			shoes.remove(shoe);
+			shoes.add(shoe);
 			successCnt++;
 		}
 		
@@ -62,10 +68,10 @@ public class ShoeList {
 	 * @return
 	 */
 	public int remove(Shoe shoe) {
-		int setIdx = findShoeIdx(shoe);
+		boolean success = shoes.remove(shoe);
 		int successCnt = 0;
-		if (setIdx > -1) {
-			shoes.remove(setIdx);
+		if (success) {
+			shoes.remove(shoe);
 			successCnt++;
 		}
 		
@@ -77,16 +83,18 @@ public class ShoeList {
 	 * @param shoe
 	 * @return
 	 */
-	public int get(Shoe shoe) {
-		int setIdx = findShoeIdx(shoe);
-		int successCnt = 0;
-		if (setIdx > -1) {
-			System.out.println(shoes.get(setIdx));
-			
-			successCnt++;
+	public Shoe get(Shoe shoe) {
+		Shoe found = null;
+		
+		for (Shoe sho : shoes) {
+			if (sho.equals(shoe)) {
+				found = sho;
+				System.out.println(found);
+				break;
+			}
 		}
 		
-		return successCnt; 
+		return found; 
 	}
 	
 	/**
@@ -94,36 +102,14 @@ public class ShoeList {
 	 * @return
 	 */
 	public List<Shoe> getAllShoes() {
-		List<Shoe> shoes = this.shoes;
+		List<Shoe> shoes = new ArrayList<Shoe>();
 		
-		for (Shoe shoe : shoes) {
-			System.out.println(shoe);
+		for (Shoe sho : this.shoes) {
+			shoes.add(sho);
+			System.out.println(sho);
 		}
 		
 		return shoes;
-	}
-	
-	
-	
-	
-	
-	
-	/**
-	 * 
-	 * @param shoe
-	 * @return
-	 */
-	private int findShoeIdx(Shoe shoe) {
-		int index = -1;
-
-		for (int idx = 0; idx < shoes.size(); idx++) {
-			if (shoes.get(idx).equals(shoe)) {
-				index = idx;
-				break;
-			}
-		}
+	}			
 		
-		return index;
-	}
-	
 }

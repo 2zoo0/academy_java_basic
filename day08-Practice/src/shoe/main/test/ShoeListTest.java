@@ -1,11 +1,11 @@
-package shoes.main.test;
+package shoe.main.test;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import shoe.Shoe;
 
-public class ShoeSetTest {
+public class ShoeListTest {
 	
 	public static void main(String[] args) {
 		
@@ -22,8 +22,8 @@ public class ShoeSetTest {
 		
 		
 		// 2. 
-		// (2) Set<Shoe> shoes 를 선언하여 add(shoe)로 추가
-		Set<Shoe> shoes = new HashSet<Shoe>();
+		// (1) Shoe 타입을 저장할 수 있는 List<Shoe> shoes 를 선언하여 리스트에 add(shoe) 로 추가
+        List<Shoe> shoes = new ArrayList<Shoe>();
         
 		shoes.add(adidas);
 		shoes.add(nike);
@@ -38,46 +38,42 @@ public class ShoeSetTest {
 		
 		// 4. SH003 번 코드로 등록된 신발의 정보 1개를 출력
 		
-		Shoe found = null;
-		
-		for (Shoe sho : shoes) {
-			if (sho.getShoeCode().equals("SH003")) {
-				found = sho;
+		int index = 0;
+		for (int idx = 0; idx < shoes.size(); idx++) {
+			// 배열의 인덱스에서 추출한 제품정보 한개
+			// products[idx] 의 제품코드 필드(prodCode) 가
+			// 매개변수로 넘어온 product 의 제품코드 필드와
+			// 동일한지 비교하고 그때의 배열 인덱스를 저장
+			if (shoes.get(idx).getShoeCode()
+					.equals("SH003")) {
+				index = idx;
 				break;
 			}
 		}
 		
-		System.out.println(found);
+		System.out.println(shoes.get(index));
 		System.out.println("4==============");
 		
 		// 5. SH003 번 코드로 등록된 신발의 정보에서 재고를 0으로 조정
+		int setIndex = -1;
 		
-		if (shoes.contains(found)) {
-			shoes.remove(found);
-			shoes.add(new Shoe("SH003", "밀라노", 250, 69000, "샌들", 0));
+		if ((setIndex = index) > -1) {
+			
+			shoes.set(setIndex, new Shoe("SH003", "밀라노", 250, 69000, "샌들", 0));
 		}
 		
 		System.out.println("5==============");
 		
 		// 6. 재고가 조정된 내용 출력
-		found = null;
-		for (Shoe sho : shoes) {
-			if (sho.getShoeCode().equals("SH003")) {
-				found = sho;
-				break;
-			}
-		}
-		System.out.println(found);
+		System.out.println(shoes.get(index));
 		System.out.println("6==============");
 		
 		// 7. SH003 번 코드로 등록된 신발 정보를 삭제
-		found = null;
-		for (Shoe sho : shoes) {
-			if (sho.getShoeCode().equals("SH003")) {
-				found = sho;
-				shoes.remove(found);
-				break;
-			}
+		setIndex = -1;
+		
+		if ((setIndex = index) > -1) {
+			
+			shoes.remove(setIndex);
 		}
 		System.out.println("7==============");
 		
@@ -85,8 +81,6 @@ public class ShoeSetTest {
 		for (Shoe shoe : shoes) {
 			System.out.println(shoe);
 		}
-		
-		
 	}
 	
 }
