@@ -1,7 +1,12 @@
 package shoes.list;
 
+<<<<<<< HEAD
 import shoes.Shoe;
 import shoes.map.ShoeMap;
+=======
+import shoe.Shoe;
+import shoe.ShoeMap;
+>>>>>>> refs/remotes/origin/master
 
 public class ShoeMapTest {
 
