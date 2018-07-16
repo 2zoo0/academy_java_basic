@@ -1,4 +1,4 @@
-package shoe;
+package shoes;
 
 /**
  * Shoe : class :신발의 정보를 저장하는 클래스

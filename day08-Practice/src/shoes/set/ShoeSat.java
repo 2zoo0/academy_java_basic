@@ -5,10 +5,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import shoe.Shoe;
+import shoes.Shoe;
 
 public class ShoeSat {
-		// 멤버변수 선언
+	// 멤버변수 선언
 	private Set<Shoe> shoes;
 
 	// 생성자

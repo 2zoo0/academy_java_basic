@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import shoe.Shoe;
+import shoes.Shoe;
 
 
 public class ShoeMap {

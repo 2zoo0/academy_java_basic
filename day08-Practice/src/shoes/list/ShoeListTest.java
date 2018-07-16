@@ -1,6 +1,6 @@
 package shoes.list;
 
-import shoe.Shoe;
+import shoes.Shoe;
 
 public class ShoeListTest {
 

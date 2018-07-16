@@ -1,6 +1,6 @@
 package shoes.map;
 
-import shoe.Shoe;
+import shoes.Shoe;
 
 public class ShoeMapTest {
 

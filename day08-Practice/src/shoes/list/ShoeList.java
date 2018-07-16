@@ -3,7 +3,7 @@ package shoes.list;
 import java.util.ArrayList;
 import java.util.List;
 
-import shoe.Shoe;
+import shoes.Shoe;
 
 public class ShoeList {
 	// 멤버변수 선언

@@ -1,9 +1,9 @@
-package shoe.main.test;
+package shoes.main.test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import shoe.Shoe;
+import shoes.Shoe;
 
 public class ShoeListTest {
 	

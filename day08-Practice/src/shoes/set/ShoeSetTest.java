@@ -1,6 +1,6 @@
 package shoes.set;
 
-import shoe.Shoe;
+import shoes.Shoe;
 
 public class ShoeSetTest {
 
