@@ -61,7 +61,7 @@ public class KeyBoardInFileOut {
 			//    파일 쓰기
 			pw.println(input);
 			// 화면에도 같이 출력 (확인을 위한 목적)
-			System.out.println("읽은 데이터 : FileWriter" + input);
+			System.out.println("읽은 데이터 : " + input);
 		}
 		
 		// 8. 입력 filter stream 닫기

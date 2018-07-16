@@ -3,6 +3,9 @@ package shop.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+
+import shop.exception.DuplicateException;
+import shop.exception.NotFoundException;
 import shop.vo.Product;
 
 /**
@@ -34,48 +37,57 @@ public class ListWarehouse implements GeneralWarehouse {
 	}
 
 	@Override
-	public int add(Product product) {
-		boolean success = products.add(product);
+	public int add(Product product) throws DuplicateException {
 		int successCnt = 0;
+		int getIndex = 0;
 		
-		if (success) {
+		if (findProductIdx(product) == -1) {
+			products.add(product);
 			successCnt++;
-		} 
+		} else {
+			throw new DuplicateException("add", product);
+		}
+		
 		return successCnt;
 	}
 
 
 	@Override
-	public Product get(Product product) {
+	public Product get(Product product) throws NotFoundException {
 		int getIndex = findProductIdx(product);
 		Product found = null;
+		
 		
 		if (getIndex > -1) {
 			// 찾아올 제품이 존재
 			found = products.get(getIndex);
 		} else {
-			
+			throw new NotFoundException("get", product);
 		}
 		return products.get(getIndex);
 	}
 
 	@Override
-	public int set(Product product) {
+	public int set(Product product) throws NotFoundException {
 		int setIdx = findProductIdx(product);
 		
 		if (setIdx > -1) {
 			products.set(setIdx, product);
+		} else {
+			throw new NotFoundException("set", product);
 		}
 		
 		return setIdx;
 	}
 
 	@Override
-	public int remove(Product product) {
+	public int remove(Product product) throws NotFoundException {
 		int rmIdx = findProductIdx(product);
 		
 		if (rmIdx > -1) {
 			products.remove(rmIdx);
+		} else {
+			throw new NotFoundException("remove", product);
 		}
 		
 		return rmIdx;

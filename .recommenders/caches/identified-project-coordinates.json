@@ -1,1 +1,5 @@
+<<<<<<< Upstream, based on branch 'master' of https://github.com/2zoo0/academy_java_basic.git
 [[{"location":"C:\\Program Files\\Java\\jre1.8.0_161","type":"JRE","hints":{"EXECUTION_ENVIRONMENT":"JavaSE-1.8"}},"jre:jre:1.8.0"],[{"location":"D:\\academy\\academy_java_basic\\day09-IO","type":"PROJECT","hints":{"PROJECT_NAME":"day09-IO"}},"ABSENT"]]
+=======
+[[{"location":"C:\\Program Files\\Java\\jre1.8.0_161","type":"JRE","hints":{"EXECUTION_ENVIRONMENT":"JavaSE-1.8"}},"jre:jre:1.8.0"],[{"location":"D:\\academy\\academy_java_basic\\day09-Product","type":"PROJECT","hints":{"PROJECT_NAME":"day09-Product"}},"ABSENT"]]
+>>>>>>> 8872051 day09 1739

@@ -93,7 +93,7 @@ public class MapWarehouse implements GeneralWarehouse {
 			result = 1;
 		} else {
 			// 삭제할 제품이 존재하지 않을 때
-			throw new NotFoundException("get", product);
+			throw new NotFoundException("remove", product);
 		}
 		return result;
 	}

@@ -26,7 +26,7 @@ public class WriteProductData{
 
 	public static void main(String[] args) throws IOException{
 		// 1. 입력대신 객체 생성
-		Product adidas = new Product("S001", "슈퍼스타", 87200, 5);
+		Product adidas = new Product(null, "슈퍼스타", 87200, 5);
 		
 		// 2. 출력 node stream
 		FileOutputStream fos = new FileOutputStream("adidas.txt");
@@ -36,12 +36,20 @@ public class WriteProductData{
 		
 		// 4. write : filter stream 의 메소드 사용
 		//    데이터 타입별로 출력 메소드를 지원
-		out.writeUTF(adidas.getProdCode());
-		out.writeUTF(adidas.getProdName());
-		out.writeInt(adidas.getPrice());
-		out.writeInt(adidas.getQuantity());
+
+		if (adidas.getProdCode() != null) {
+			out.writeUTF(adidas.getProdCode());
+			out.writeUTF(adidas.getProdName());
+			out.writeInt(adidas.getPrice());
+			out.writeInt(adidas.getQuantity());
+			System.out.println("adidas.data 파일이 생성되었습니다.");
+			
+		} else {
+			System.out.println("adidas.data 파일이 생성에 실패했습니다.");
+			throw new IOException();
+		}
 		
-		System.out.println("adidas.data 파일이 생성되었습니다.");
+		
 		
 		// 5. output filter stream 닫기
 		out.close();
