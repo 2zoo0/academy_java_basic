@@ -2,7 +2,6 @@ package io.basic;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
@@ -45,15 +44,27 @@ public class KeyboardInput {
 		
 		// 4. 3의 필터 스트림의 메소드를 사용하여 키보드 입력을 읽어들임
 		String readData = null;
-		while ((readData = br.readLine()) != null) {
-			// 5. null 이 아니면 읽은 데이터가 있으므로 출력
-			System.out.println("읽은 데이터 : " + readData);
+		
+		try {
+			while ((readData = br.readLine()) != null) {
+				// 5. null 이 아니면 읽은 데이터가 있으므로 출력
+				System.out.println("읽은 데이터 : " + readData);
+			}
+			
+		}catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			// 6. 자원해제 : 예외 발생 여부와 관계없이 항상 안정적으로 해제가 이루어져야 하므로 
+			//            자원 해제 관련 구문은 finally 에서 진행
+			
+			try {
+				if (br != null)
+					br.close();
+			} catch (IOException e) {
+				System.out.println("자원 반납 실패" + e.getMessage());
+				e.printStackTrace();
+			}
 		}
-		
-		// 6. 자원 해제
-		br.close();
-		
-		
 		
 	}
 
