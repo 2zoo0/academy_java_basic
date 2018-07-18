@@ -26,9 +26,13 @@ public class BookStore {
 		Book stockBook = new Book("BK001", "하루 만에 수익 내는 실전 주식투자", "강창권", 18000, "9791160505016", "길벗");
 
 		Book essay = new Book("BK002", "이제부터 민폐 좀 끼치고 살겠습니다", "고코로야 진노스케", 12600, "9788901225395", "걷는나무");
+		
+		Book cartoon = new Book("BK003", " 원피스 ONE PIECE 89권", "오다 에이이치로", 4500, "9791133482955", "대원 ");
 
 		manager.insert(stockBook);
 		manager.insert(essay);
+		manager.insert(cartoon);
+
 		System.out.println("=========");
 		
 		manager.select();
