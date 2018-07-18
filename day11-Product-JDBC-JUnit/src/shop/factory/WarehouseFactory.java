@@ -10,6 +10,7 @@ import java.util.Set;
 import shop.dao.ArrayWarehouse;
 import shop.dao.GeneralWarehouse;
 import shop.dao.JdbcWarehouse;
+import shop.dao.JdbcWarehouse2;
 import shop.dao.ListWarehouse;
 import shop.dao.MapWarehouse;
 import shop.dao.SetWarehouse;
@@ -43,6 +44,9 @@ public class WarehouseFactory {
 			
 		} else if ("jdbc".equals(type)) {
 			warehouse = new JdbcWarehouse();
+			
+		} else if ("singleton".equals(type)) {
+			warehouse = JdbcWarehouse2.getInstance();
 		}
 		
 		

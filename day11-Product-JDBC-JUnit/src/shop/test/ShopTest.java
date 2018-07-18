@@ -32,7 +32,8 @@ public class ShopTest {
 //		GeneralWarehouse warehouse = new SetWarehouse(prodsSet);
 //		GeneralWarehouse warehouse = new MapWarehouse(prodsMap);
 //		GeneralWarehouse warehouse = new JdbcWarehouse();
-		GeneralWarehouse warehouse = getWarehouse("jdbc");
+//		GeneralWarehouse warehouse = getWarehouse("jdbc");
+		GeneralWarehouse warehouse = getWarehouse("singleton");
 		
 		// 3. 매장을 관리할 매니저를 고용함
 		Manager manager = new Manager(warehouse);
