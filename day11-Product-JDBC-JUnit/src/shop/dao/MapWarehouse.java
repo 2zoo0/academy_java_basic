@@ -31,14 +31,6 @@ public class MapWarehouse implements GeneralWarehouse {
 		this.products = prodsMap;
 	}
 
-	public Map<String, Product> getProducts() {
-		return products;
-	}
-
-	public void setProducts(Map<String, Product> products) {
-		this.products = products;
-	}
-
 	@Override
 	public int add(Product product) throws DuplicateException {
 		int successCnt = 0;
@@ -77,7 +69,7 @@ public class MapWarehouse implements GeneralWarehouse {
 			result = 1;
 		} else {
 			// 수정할 제품이 존재하지 않을 때
-			throw new NotFoundException("get", product);
+			throw new NotFoundException("set", product);
 		}
 		
 		return result;

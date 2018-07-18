@@ -39,7 +39,6 @@ public class ListWarehouse implements GeneralWarehouse {
 	@Override
 	public int add(Product product) throws DuplicateException {
 		int successCnt = 0;
-		int getIndex = 0;
 		
 		if (findProductIdx(product) == -1) {
 			products.add(product);

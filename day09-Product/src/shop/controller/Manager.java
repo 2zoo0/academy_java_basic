@@ -155,8 +155,8 @@ public class Manager {
 		Product found;
 		try {
 			found = warehouse.get(product);
-				reply = new ProductReply();
-				reply.reply(found);
+			reply = new ProductReply();
+			reply.reply(found);
 			
 		} catch (NotFoundException e) {
 			reply = new ErrorReply();
