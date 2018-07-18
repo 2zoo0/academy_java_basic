@@ -1,25 +1,22 @@
 package book.test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import book.controller.BookManager;
 import book.dao.BookShelf;
-import book.dao.ListBookShelf;
+import book.dao.JdbcBookShelf;
 import book.vo.Book;
 
 public class BookStore {
 
 	public static void main(String[] args) {
 
-		List<Book> libooks = new ArrayList<Book>();
+//		List<Book> libooks = new ArrayList<Book>();
 //		Set<Book> booksSet = new HashSet<Book>();
 //		Map<String, Book> booksMap = new HashMap<>();
 		
-		BookShelf shelf = new ListBookShelf(libooks);
+//		BookShelf shelf = new ListBookShelf(libooks);
 //		BookShelf shelf = new SetBookShelf(booksSet);
 //		BookShelf shelf = new MapBookShelf(booksMap);
-//		BookShelf shelf = new JdbcBookShelf();
+		BookShelf shelf = new JdbcBookShelf();
 		
 		BookManager manager = new BookManager(shelf);
 
@@ -27,7 +24,7 @@ public class BookStore {
 
 		Book essay = new Book("BK002", "이제부터 민폐 좀 끼치고 살겠습니다", "고코로야 진노스케", 12600, "9788901225395", "걷는나무");
 		
-		Book cartoon = new Book("BK003", " 원피스 ONE PIECE 89권", "오다 에이이치로", 4500, "9791133482955", "대원 ");
+		Book cartoon = new Book("BK003", "원피스 ONE PIECE 89권", "오다 에이이치로", 4500, "9791133482955", "대원 ");
 
 		manager.insert(stockBook);
 		manager.insert(essay);
@@ -38,23 +35,25 @@ public class BookStore {
 		manager.select();
 		
 		System.out.println("- 가격 검색 -");
-		manager.select(10000, 15000);
-		System.out.println(" - 키워드 검색 - ");
+		manager.select(15000, 20000);
+		System.out.println("- 키워드 검색 - ");
 		manager.select("민폐");
 		System.out.println("- 총 권수 -");
 		manager.totalCount();
 		System.out.println("=========");
 		
-		Book essay2 = new Book("BK002", "이제부터 민폐 좀 끼치고 살겠습니다", "진노스케 코고로야", 12600, "9788901225395", "걷는나무");
+		Book essay2 = new Book("BK002", "이제부터 민폐 좀 끼치고 살겠습니다", "진노스케 코고로야", 10100, "9788901225395", "걷는나무");
 		manager.update(essay2);
-		manager.select(new Book("BK002", null, null, 0, null, null));
+		System.out.println("=========");
+		manager.select(essay2);
 		System.out.println("=========");
 		
-		manager.delete(essay);
+		manager.delete(stockBook);
 		manager.select();
 		
+		System.out.println("- 전체 갯수 -");
 		manager.totalCount();
-		
+		System.out.println("- 전체 삭제 -");
 		manager.delete();
 		manager.totalCount();
 	}

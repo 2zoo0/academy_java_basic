@@ -18,3 +18,12 @@ SELECT b.bookid
      , b.publish
   FROM book b
 WHERE b.bookid = 'BK002';
+
+SELECT b.bookid
+     , b.title
+     , b.author
+     , b.price
+     , b.isbn
+     , b.publish
+  FROM book b
+WHERE b.price > 10000 and b.price < 15000;

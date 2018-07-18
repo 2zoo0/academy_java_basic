@@ -78,6 +78,7 @@ public class BookManager {
 			// 수정이 실패한 경우
 			message = String.format("도서정보[%s]수정에 실패하였습니다.", book.getBookId());
 			bookView = new MessageView();
+			e.printStackTrace();
 		} finally {
 			bookView.display(message);
 		}
@@ -93,8 +94,8 @@ public class BookManager {
 			bookView = new MessageView();
 			
 		} catch (NotFoundException e) {
-
-			message = String.format("도서정보[%s]삭제에 성공하였습니다.", book.getBookId());
+			e.printStackTrace();
+			message = String.format("도서정보[%s]삭제에 실패하였습니다.", book.getBookId());
 			
 			bookView = new ErrorView();
 		} finally {
@@ -140,13 +141,13 @@ public class BookManager {
 	public void totalCount() {
 		int ttCnt = bookShelf.totalCount();
 		bookView = new MessageView();
-		bookView.display("전체 책은 총" + ttCnt + "권 입니다.");
+		bookView.display("전체 책은 총 " + ttCnt + "권 입니다.");
 	}
 	
 	public void delete() {
-		int adCnt = bookShelf.delete();
+		int ddCnt = bookShelf.delete();
 		bookView = new MessageView();
-		bookView.display("삭제한 책은 총" + adCnt + "권 입니다.");
+		bookView.display("삭제한 책은 총 " + ddCnt + "권 입니다.");
 	}
 	
 }

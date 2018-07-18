@@ -103,6 +103,26 @@ public class MapBookShelf implements BookShelf {
 	@Override
 	public List<Book> select(int low, int high) {
 		// TODO Auto-generated method stub
+		List<Book> books = null;
 		
+		return books;
+	}
+
+	@Override
+	public List<Book> select(String keyword) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int totalCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int delete() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

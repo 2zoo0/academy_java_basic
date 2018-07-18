@@ -213,7 +213,7 @@ public class JdbcWarehouse implements GeneralWarehouse {
 			conn = getConnection(URL, USER, PASSWORD);
 			
 			// 3. 쿼리 준비
-			String sql = " DELETE product" + 
+			String sql = " DELETE FROM product" + 
 					" WHERE prodcode = ?";
 			
 			pstmt = conn.prepareStatement(sql);
