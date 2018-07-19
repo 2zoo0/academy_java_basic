@@ -166,8 +166,8 @@ public class JdbcWarehouse implements GeneralWarehouse {
 			
 			// 3. 쿼리 준비
 			String sql = " UPDATE product p" + 
-						"  SET  p.prodname= ? , p.price= ? , p.quantity= ?" + 
-						" WHERE p.prodcode = ? ";
+					"  SET  p.prodname= ? , p.price= ? , p.quantity= ?" + 
+					" WHERE p.prodcode = ? ";
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, product.getProdName());

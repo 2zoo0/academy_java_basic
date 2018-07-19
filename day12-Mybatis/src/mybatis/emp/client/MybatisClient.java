@@ -1,0 +1,40 @@
+package mybatis.emp.client;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+public class MybatisClient {
+	
+	public static SqlSessionFactory factory;
+	
+//	SqlSessionFactory 객체를 초기화
+//	이 클래스 생성자에서 진행
+//	mybatis-config.xml 파일을 InputStream 으로 읽어들여 초기화 함
+	
+	private MybatisClient() {
+		String resourse = "mybatis-config.xml";
+		InputStream in = null;
+		
+		try {
+			in = Resources.getResourceAsStream(resourse);
+			factory = new SqlSessionFactoryBuilder().build(in);
+		} catch (IOException e) {
+			System.out.println("mybatis 설정 읽기 오류");
+			e.printStackTrace();
+		}
+	} // 생성자 종료
+	
+	// 싱글턴으로 관리할 타입을 리턴하는 static 메소드 선언
+	public static SqlSessionFactory getFactory() {
+		if (factory == null) {
+			new MybatisClient();
+		}
+		
+		return factory;
+	}
+
+}

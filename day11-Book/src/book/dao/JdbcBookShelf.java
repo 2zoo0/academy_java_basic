@@ -16,8 +16,8 @@ import book.vo.Book;
 public class JdbcBookShelf implements BookShelf {
 
 	private static final String URL = "jdbc:oracle:thin:@//127.0.0.1:1521/XE";
-	private static final String USER = "SCOTT";
-	private static final String PASSWORD = "TIGER";
+	private static final String USER = "scott";
+	private static final String PASSWORD = "tiger";
 	private static final String DRIVER = "oracle.jdbc.OracleDriver";
 
 	// 2. 생성자 선언
