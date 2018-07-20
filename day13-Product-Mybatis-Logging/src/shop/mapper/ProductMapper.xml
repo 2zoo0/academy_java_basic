@@ -19,27 +19,38 @@
 		)
 	</insert>
 
-	<select id="select" parameterType="Product" resultType="Product">
+	<select id="selectOne" parameterType="Product" resultType="Product">
 		SELECT p.prodcode
-		, p.prodname
-		, p.price
-		, p.quantity
-		FROM product p
-		WHERE p.prodcode = #{prodCode}
+			 , p.prodname
+			 , p.price
+			 , p.quantity
+	  	  FROM product p
+		 WHERE p.prodcode = #{prodCode}
 	</select>
 
 	<update id="update" parameterType="Product">
 		UPDATE product p
-		SET p.prodname= #{prodName}
+		<set>
+		  p.MODDATE = sysdate
+		<if test="prodName != null">
+		, p.prodname= #{prodName}
+		</if>
+		<if test="price > 0">
 		, p.price= #{price}
+		</if>
+		<if test="quantity > -1">
 		, p.quantity= #{quantity}
-		, p.MODDATE = sysdate
+		</if>
+		</set>
+		<trim prefix="SET" prefixOverrides=","/>
 		WHERE p.prodcode = #{prodCode}
 	</update>
 
-	<delete id="deleteOne" parameterType="Product">
+	<delete id="delete" parameterType="Product">
 		DELETE product p
+		<if test="prodcode != null">
 		WHERE p.prodcode = #{prodCode}
+		</if>
 	</delete>
 
 	<select id="selectAll" resultType="Product">
@@ -51,7 +62,7 @@
 	</select>
 	<select id="isExists" parameterType="Product" resultType="String">
 	   SELECT p.prodcode
-		 FROM product p
+		FROM product p
 		WHERE p.prodcode = #{prodCode}
 	</select>
 

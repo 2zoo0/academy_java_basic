@@ -1,16 +1,9 @@
 package shop.test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import shop.controller.Manager;
 import shop.dao.GeneralWarehouse;
-import shop.dao.JdbcWarehouse;
-import shop.dao.ListWarehouse;
 import shop.dao.MybatisWarehouse;
 import shop.vo.Product;
-
-import static shop.factory.WarehouseFactory.getWarehouse;
 /**
  * 매장에서 판매될 물건을 신규 추가/수정/삭제 등
  * 기능을 테스트하는 클래스
@@ -80,15 +73,15 @@ public class ShopTest {
 		
 		// 4. 수정된 아디다스 제품 수정 확인
 		System.out.println();
-		manager.get(new Product("S001", null, 0, 0));
+		manager.get(adidas);
 
-		
+		manager.remove(null);
 		// 5. 판매 종료할 제품 폐기
-		manager.remove(adidas);
-		manager.remove(reebok);
-		manager.remove(nike);
-		manager.remove(crocs);
-		manager.remove(birkenstock);
+//		manager.remove(adidas);
+//		manager.remove(reebok);
+//		manager.remove(nike);
+//		manager.remove(crocs);
+//		manager.remove(birkenstock);
 
 		// 6. 폐기 확인을 위해 전체 목록 재 조회
 		System.out.println();
