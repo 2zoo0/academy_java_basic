@@ -48,9 +48,10 @@ public class MybatisWarehouse implements GeneralWarehouse {
 	@Override
 	public Product get(Product product) throws NotFoundException {
 		// 삭제할 대상 제품이 있는지 선 조회
-		if (isExists(product)) {
+		if (!isExists(product)) {
 			throw new NotFoundException("조회", product);
 		}
+		
 		// 1. Sqlsession 얻기
 		SqlSession session = factory.openSession(true);
 		Product found = null;
@@ -100,7 +101,7 @@ public class MybatisWarehouse implements GeneralWarehouse {
 	@Override
 	public int remove(Product product) throws NotFoundException {
 		// 삭제할 대상 제품이 있는지 선 조회
-		if (!isExists(product)) {
+		if (product != null && !isExists(product)) {
 			throw new NotFoundException("삭제", product);
 		}
 		// 1. Sqlsession 얻기
@@ -113,7 +114,7 @@ public class MybatisWarehouse implements GeneralWarehouse {
 		
 		try {
 			// mapper 를 통하여 삭제 진행
-			rmCnt = mapper.deleteOne(product);
+			rmCnt = mapper.delete(product);
 		} finally {
 			if(session != null) {
 				session.close();
@@ -149,7 +150,7 @@ public class MybatisWarehouse implements GeneralWarehouse {
 	
 	// isExists 지원 메소드 작성
 	private boolean isExists(Product product) {
-		boolean isExists = false;
+		boolean isExist = false;
 		
 		// 1. SqlSession 얻기
 		SqlSession session = factory.openSession();
@@ -162,14 +163,14 @@ public class MybatisWarehouse implements GeneralWarehouse {
 		try {
 			String prodCode = mapper.isExists(product);
 			if (prodCode != null) {
-				isExists = true;
+				isExist = true;
 			}
 		} finally {
 			// 4. session 닫기
 			if (session != null)
 				session.close();
 		}
-		System.out.println(isExists);
-		return isExists;
+		
+		return isExist;
 	}
 }
