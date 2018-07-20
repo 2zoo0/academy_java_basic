@@ -49,6 +49,7 @@
 	</update>
 
 	<delete id="delete" parameterType="Book">
+<<<<<<< HEAD
 		DELETE book b
 		<if test="bookId != null">
 		WHERE b.bookid = #{bookId}
@@ -72,6 +73,31 @@
 	
 	<select id="totalCount" resultType="int">
 		SELECT nvl(max(ROWNUM), 0)
+=======
+		DELETE FROM book 
+		<if test="prodcode != null">
+		WHERE bookid = #{bookId}
+		</if>
+	</delete>
+
+	<delete id="deleteAll">
+		DELETE FROM book
+	</delete>
+
+	<select id="selectAll" resultType="Book">
+		SELECT b.bookid
+		     , b.title 
+		     , b.author
+		     , b.price
+		     , b.isbn
+		     , b.publish
+		  FROM book b
+		 ORDER BY b.bookid
+	</select>
+	
+	<select id="totalCount" resultType="int">
+		SELECT max(rownum)
+>>>>>>> branch 'master' of https://github.com/2zoo0/academy_java_basic.git
 		  FROM book
 	</select>
 	

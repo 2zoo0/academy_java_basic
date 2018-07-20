@@ -48,6 +48,7 @@ public class BookStore {
 		manager.select("민폐");
 		System.out.println("- 총 권수 -");
 		manager.totalCount();
+<<<<<<< HEAD
 		System.out.println("\n=========");
 
 		Book essay2 = new Book("BK002", "이제부터 민폐 좀 끼치고 살겠습니다", "진노스케 코고로야", 10200, "9788901225395", "걷는나무");
@@ -73,6 +74,27 @@ public class BookStore {
 		manager.select();
 		
 		System.out.println("\n- 전체 갯수 -");
+=======
+		System.out.println("=========");
+
+		Book essay2 = new Book("BK002", "이제부터 민폐 좀 끼치고 살겠습니다", "진노스케 코고로야", 10200, "9788901225395", "걷는나무");
+		manager.update(essay2);
+//		System.out.println("=========");
+		manager.select(essay2);
+
+//		manager.delete(stockBook);
+		System.out.println("=========");
+		manager.delete(essay);
+		System.out.println("=========");
+		manager.delete(cartoon);
+		System.out.println("=========");
+		manager.select();
+//
+		System.out.println("- 전체 갯수 -");
+		manager.totalCount();
+		System.out.println("- 전체 삭제 -");
+		manager.delete();
+>>>>>>> branch 'master' of https://github.com/2zoo0/academy_java_basic.git
 		manager.totalCount();
 	}
 

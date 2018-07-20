@@ -9,6 +9,7 @@ public class Book {
 	private int price; 
 	private String isbn;    
 	private String publish;
+<<<<<<< HEAD
 	private int ttCnt;
 	
 	// 생성자 
@@ -90,6 +91,82 @@ public class Book {
 		this.ttCnt = ttCnt;
 	}
 
+=======
+	
+	// 생성자 
+	/**
+	 * 기본 생성자
+	 */
+	public Book() {
+	}
+	
+	/**
+	 * 
+	 * @param bookId
+	 */
+	public Book(String bookId) {
+		this.bookId = bookId;
+	}
+
+	/**
+	 * 
+	 * @param bookId
+	 * @param title
+	 * @param author
+	 * @param price
+	 * @param isbn
+	 * @param publish
+	 */
+	public Book(String bookId, String title, String author, int price, String isbn, String publish) {
+		this(bookId);
+		this.title = title;
+		this.author = author;
+		this.price = price;
+		this.isbn = isbn;
+		this.publish = publish;
+	}
+	
+	// 접근자들
+	public String getBookId() {
+		return bookId;
+	}
+	public void setBookId(String bookId) {
+		this.bookId = bookId;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getAuthor() {
+		return author;
+	}
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public String getIsbn() {
+		return isbn;
+	}
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+	public String getPublish() {
+		return publish;
+	}
+	public void setPublish(String publish) {
+		this.publish = publish;
+	}
+
+	
+	
+>>>>>>> branch 'master' of https://github.com/2zoo0/academy_java_basic.git
 	public void print() {
 		System.out.println("[bookId=" + bookId + ", title=" + title + ", author=" + author + ", price=" + price + ", isbn="
 				+ isbn + ", publish=" + publish + "]");

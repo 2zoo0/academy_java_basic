@@ -42,7 +42,11 @@ public class BookManager {
 	
 	// 메소드들
 	public void insert(Book book) {
+<<<<<<< HEAD
 		String message = null;
+=======
+		String message = "";
+>>>>>>> branch 'master' of https://github.com/2zoo0/academy_java_basic.git
 		
 		try {
 			bookShelf.insert(book);
